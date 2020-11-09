@@ -1,0 +1,2 @@
+# kata-training
+Kata Training
