@@ -14,4 +14,9 @@ describe('Fizzbuzz', () => {
     const num = 5;
     expect(fizzbuzz.returnANumber(num)).toBe(num);
   });
+
+  test('returns fizz when argument is 3', () => {
+    const num = 3;
+    expect(fizzbuzz.returnANumber(num)).toBe('Fizz');
+  });
 });
