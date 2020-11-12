@@ -7,7 +7,7 @@ describe('Fizzbuzz', () => {
     })
 
     test('FizzBuzz to be instantiated', () => {
-    expect(fizzbuzz).toBeInstanceOf(FizzBuzz)
+        expect(fizzbuzz).toBeInstanceOf(FizzBuzz)
     })
 
     test('returns a number', () => {
