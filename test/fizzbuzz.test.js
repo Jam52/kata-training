@@ -14,27 +14,22 @@ describe('Fizzbuzz', () => {
     {
       num: 2,
       result: 2,
-    },
-    {
-      num: 3,
-      result: 'Fizz',
-    },
-    {
-      num: 5,
-      result: 'Buzz',
+      description: 'returns number given when not multiple of 3 or 5',
     },
     {
       num: 9,
       result: 'Fizz',
+      description: 'returns Fizz when num given is multiple of 3',
     },
     {
       num: 10,
       result: 'Buzz',
+      description: 'returns Buzz when num given is multiple of 5',
     },
   ];
 
-  describe.each(data)('Fizzbuzz', (num) => {
-    test(`returns ${num.result} when given ${num.num}`, () => {
+  describe.each(data)('When passed a number', (num) => {
+    test(`${num.description}`, () => {
       expect(fizzbuzz.returnANumber(num.num)).toBe(num.result);
     });
   });
