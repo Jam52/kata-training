@@ -6,6 +6,9 @@ export class FizzBuzz {
     if (num === 3) {
       fizzbuzz = 'Fizz';
     }
+    if (num === 5) {
+      fizzbuzz = 'Buzz';
+    }
     return fizzbuzz;
   };
 }
