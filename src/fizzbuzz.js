@@ -1,7 +1,7 @@
 export class FizzBuzz {
-    constructor() {}
+  constructor() {}
 
-    returnANumber = () => {
-        return 1;
-    }
+  returnANumber = (num) => {
+    return num;
+  };
 }
