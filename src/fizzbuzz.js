@@ -2,7 +2,7 @@ export class FizzBuzz {
   constructor() {}
 
   returnANumber = (num) => {
-    const isNum = parseInt(num);
+    const isNum = Number(num);
     if (num === null || isNaN(isNum)) {
       return new Error();
     }

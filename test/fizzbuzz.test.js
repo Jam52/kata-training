@@ -31,6 +31,11 @@ describe('Fizzbuzz', () => {
       result: 'FizzBuzz',
       description: 'returns FizzBuzz when num given is multiple of 3 and 5',
     },
+    {
+      num: 2.2,
+      result: 2.2,
+      description: 'returns num given when num given is a float',
+    },
   ];
 
   describe.each(data)('When passed a number', (num) => {
