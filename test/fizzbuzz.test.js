@@ -26,6 +26,11 @@ describe('Fizzbuzz', () => {
       result: 'Buzz',
       description: 'returns Buzz when num given is multiple of 5',
     },
+    {
+      num: 15,
+      result: 'FizzBuzz',
+      description: 'returns FizzBuzz when num given is multiple of 3 and 5',
+    },
   ];
 
   describe.each(data)('When passed a number', (num) => {
