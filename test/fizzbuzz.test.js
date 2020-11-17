@@ -38,4 +38,10 @@ describe('Fizzbuzz', () => {
       expect(fizzbuzz.returnANumber(num.num)).toBe(num.result);
     });
   });
+
+  describe('When passed nan', () => {
+    test('value given is null', () => {
+      expect(fizzbuzz.returnANumber(null)).toEqual(new Error());
+    });
+  });
 });
