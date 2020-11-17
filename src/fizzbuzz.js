@@ -2,7 +2,8 @@ export class FizzBuzz {
   constructor() {}
 
   returnANumber = (num) => {
-    if (num === null) {
+    const isNum = parseInt(num);
+    if (num === null || isNaN(isNum)) {
       return new Error();
     }
     if (num % 5 === 0 && num % 3 === 0) {
@@ -14,7 +15,6 @@ export class FizzBuzz {
     if (num % 5 === 0) {
       return 'Buzz';
     }
-
-    return num;
+    return isNum;
   };
 }

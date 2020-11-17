@@ -43,5 +43,11 @@ describe('Fizzbuzz', () => {
     test('value given is null', () => {
       expect(fizzbuzz.returnANumber(null)).toEqual(new Error());
     });
+    test('value given is a number as a string', () => {
+      expect(fizzbuzz.returnANumber('2')).toBe(2);
+    });
+    test('value given is nan as a string', () => {
+      expect(fizzbuzz.returnANumber('bambam')).toEqual(new Error());
+    });
   });
 });
