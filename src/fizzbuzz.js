@@ -2,16 +2,15 @@ export class FizzBuzz {
   constructor() {}
 
   returnANumber = (num) => {
-    let fizzbuzz = num;
+    if (num % 5 === 0 && num % 3 === 0) {
+      return 'FizzBuzz';
+    }
     if (num % 3 === 0) {
-      fizzbuzz = 'Fizz';
+      return 'Fizz';
     }
     if (num % 5 === 0) {
-      fizzbuzz = 'Buzz';
+      return 'Buzz';
     }
-    if (num % 5 === 0 && num % 3 === 0) {
-      fizzbuzz = 'FizzBuzz';
-    }
-    return fizzbuzz;
+    return num;
   };
 }
