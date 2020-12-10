@@ -1,6 +1,6 @@
-import { SampleFile } from '../src/sampleFile'
+import { CallCenter } from '../src/callCenterAvailability';
 
 test('just checking', () => {
-    const sampleFile = new SampleFile();
-    expect(sampleFile.sampleFunction()).toBe(1)
-})
+  const sampleFile = new CallCenter();
+  expect(sampleFile.sampleFunction()).toBe(1);
+});
