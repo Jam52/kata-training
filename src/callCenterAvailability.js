@@ -1,9 +1,19 @@
 var dayjs = require('dayjs');
 
 export class CallCenter {
-  constructor() {}
+  constructor(requestedAppointment) {
+    this.requestedAppointment = dayjs(requestedAppointment);
+  }
 
-  inputDateCalled = (date) => {
-    return dayjs(date).format('YYYY-MM-DD');
+  getCurrentDate = () => {
+    return dayjs();
+  };
+
+  getRequestedAppointment = () => {
+    return this.requestedAppointment;
+  };
+
+  isValidAppointment = () => {
+    return this.getCurrentDate().diff(this.requestedAppointment) > 7;
   };
 }
