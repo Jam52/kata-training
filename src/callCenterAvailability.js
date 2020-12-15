@@ -1,7 +1,9 @@
+var dayjs = require('dayjs');
+
 export class CallCenter {
   constructor() {}
 
-  sampleFunction = () => {
-    return 1;
+  inputDateCalled = (date) => {
+    return dayjs(date).format('YYYY-MM-DD');
   };
 }
