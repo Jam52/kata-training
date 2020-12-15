@@ -14,6 +14,16 @@ export class CallCenter {
   };
 
   isValidAppointment = () => {
-    return this.getCurrentDate().diff(this.requestedAppointment) > 7;
+    const dateDiff = this.requestedAppointment.diff(
+      this.getCurrentDate(),
+      'day',
+    );
+    if (dateDiff > 7) {
+      return false;
+    }
+    if (dateDiff < 0) {
+      return false;
+    }
+    return true;
   };
 }
