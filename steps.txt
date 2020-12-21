@@ -1,0 +1,15 @@
+what is the date of the call what format shall we use?
+if that date 8+ days - false
+if date is in past - false
+if that date === sunday - false
+if outside of max hours - false
+
+- if todays date 
+if less than two hrs - false
+if outside of todays working hrs - false
+
+- if not todays date
+if that time outside of working hours on date specified - false
+
+return true :)
+
