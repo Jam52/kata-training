@@ -1,8 +1,8 @@
 import { CallCenter } from '../src/callCenterAvailability';
 var dayjs = require('dayjs');
 
-const dateUserMadeContact = '2020-12-20';
-const requestedAppointment = '2020-12-20';
+const dateUserMadeContact = '2020-12-23T12:00:00.000Z';
+const requestedAppointment = '2020-12-23T15:00:00.000Z';
 
 test('returns input dates of requested appointment and date user made contact', () => {
   const callCenter = new CallCenter(requestedAppointment, dateUserMadeContact);
@@ -41,5 +41,14 @@ test('returns false if appointment is in the past', () => {
 test('returns false if day is a sunday', () => {
   const requestedAppointment = '2020-12-27';
   const callCenter = new CallCenter(requestedAppointment, dateUserMadeContact);
+  expect(callCenter.isValidAppointment()).toBe(false);
+});
+
+test('returns false if outside of max hours', () => {
+  const requestedAppointmentOutsideEveingHours = '2020-12-23T20:10:00.000Z';
+  const callCenter = new CallCenter(
+    requestedAppointmentOutsideEveingHours,
+    dateUserMadeContact,
+  );
   expect(callCenter.isValidAppointment()).toBe(false);
 });

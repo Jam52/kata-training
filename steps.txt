@@ -1,8 +1,8 @@
-what is the date of the call what format shall we use?
-if that date 8+ days - false
-if date is in past - false
-if that date === sunday - false
-if outside of max hours - false
+what is the date of the call what format shall we use? - DONE
+if that date 8+ days - false - DONE
+if date is in past - false - DONE
+if that date === sunday - false - DONE
+if outside of max hours - false - DONE
 
 - if todays date 
 if less than two hrs - false

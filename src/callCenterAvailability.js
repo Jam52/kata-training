@@ -1,4 +1,6 @@
 var dayjs = require('dayjs');
+var isBetween = require('dayjs/plugin/isBetween');
+dayjs.extend(isBetween);
 
 export class CallCenter {
   constructor(requestedAppointment, dateUserMadeContact) {
@@ -18,17 +20,25 @@ export class CallCenter {
     if (this.requestedAppointment.format('ddd') === 'Sun') {
       return false;
     }
-    const dateDiff = this.requestedAppointment.diff(
+    const daysDiff = this.requestedAppointment.diff(
       this.getDateUserMadeContact(),
       'day',
     );
-    if (dateDiff > 7) {
+    const secondsDiff = this.requestedAppointment.diff(
+      this.getDateUserMadeContact(),
+      'second',
+    );
+    if (daysDiff > 7) {
       return false;
     }
-    if (dateDiff < 0) {
+    if (secondsDiff < 0) {
       return false;
     }
-
+    if (
+      !this.requestedAppointment.isBetween('09:00:00', '20:00:00', 'second')
+    ) {
+      return false;
+    }
     return true;
   };
 }
