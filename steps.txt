@@ -4,8 +4,8 @@ if date is in past - false - DONE
 if that date === sunday - false - DONE
 if outside of max hours - false - DONE
 
-- if todays date 
-if less than two hrs - false
+- if todays date - DONE
+if less than two hrs - false - DONE
 if outside of todays working hrs - false
 
 - if not todays date

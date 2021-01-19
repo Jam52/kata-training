@@ -16,6 +16,16 @@ export class CallCenter {
     return this.dateUserMadeContact;
   };
 
+  getDayStart = (date) => {
+    const nineAm = dayjs(`${date.format('YYYY-MM-DD')}T09:00:00.000Z`);
+    return nineAm;
+  };
+
+  getDayEnd = (date) => {
+    const eightPm = dayjs(`${date.format('YYYY-MM-DD')}T20:00:00.000Z`);
+    return eightPm;
+  };
+
   isValidAppointment = () => {
     if (this.requestedAppointment.format('ddd') === 'Sun') {
       return false;
@@ -35,9 +45,22 @@ export class CallCenter {
       return false;
     }
     if (
-      !this.requestedAppointment.isBetween('09:00:00', '20:00:00', 'second')
+      !this.requestedAppointment.isBetween(
+        this.getDayStart(this.requestedAppointment),
+        this.getDayEnd(this.requestedAppointment),
+        'second',
+      )
     ) {
       return false;
+    }
+    if (this.requestedAppointment.isSame(this.dateUserMadeContact, 'day')) {
+      console.log('same day');
+      if (
+        this.requestedAppointment.diff(this.dateUserMadeContact, 'second') <
+        7200
+      ) {
+        return false;
+      }
     }
     return true;
   };
