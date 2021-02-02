@@ -3,9 +3,10 @@ var isBetween = require('dayjs/plugin/isBetween');
 dayjs.extend(isBetween);
 
 export class CallCenter {
-  constructor(requestedAppointment, dateUserMadeContact) {
+  constructor(requestedAppointment, dateUserMadeContact, openingHours) {
     this.requestedAppointment = dayjs(requestedAppointment);
     this.dateUserMadeContact = dayjs(dateUserMadeContact);
+    this.openingHours = openingHours;
   }
 
   getRequestedAppointment = () => {
@@ -17,13 +18,23 @@ export class CallCenter {
   };
 
   getDayStart = (date) => {
-    const nineAm = dayjs(`${date.format('YYYY-MM-DD')}T09:00:00.000Z`);
-    return nineAm;
+    let currentDay = date.format('ddd');
+    const openingTime = dayjs(
+      `${date.format('YYYY-MM-DD')}T${
+        this.openingHours[currentDay.toLowerCase()].openTime
+      }Z`,
+    );
+    return openingTime;
   };
 
   getDayEnd = (date) => {
-    const eightPm = dayjs(`${date.format('YYYY-MM-DD')}T20:00:00.000Z`);
-    return eightPm;
+    let currentDay = date.format('ddd');
+    const closingTime = dayjs(
+      `${date.format('YYYY-MM-DD')}T${
+        this.openingHours[currentDay.toLowerCase()].closeTime
+      }Z`,
+    );
+    return closingTime;
   };
 
   isValidAppointment = () => {
